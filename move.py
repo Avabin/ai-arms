@@ -14,7 +14,7 @@ def generate_moves(amount, range_of_drone):
     retval = list()
     for i in range(0, amount):
         angle = randint(0, 360)
-        distance = randint(range_of_drone/4, range_of_drone)
+        distance = randint(range_of_drone//4, range_of_drone)
         move = Move(angle, distance)
         retval.append(move)
     return retval

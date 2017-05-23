@@ -1,11 +1,21 @@
 from math import cos, sin, radians
+from random import randint
+
+
+class Position(object):
+    def __init__(self, x, y):
+        self.x = x
+        self.y = y
+
+    def __str__(self):
+        return "x: " + str(self.x) + ", y: " + str(self.y)
 
 
 class Drone(object):
-    def __init__(self):
-        self.current_angle = 0
-        self.moves = list()
-        self.pos = Position(0, 0)
+    def __init__(self, moves=list(), pos=Position(0, 0)):
+        self.current_angle = randint(0, 360)
+        self.moves = moves
+        self.pos = pos
 
     def apply_move(self, move):
         self.moves.append(move)
@@ -28,10 +38,3 @@ class Drone(object):
         return retval
 
 
-class Position(object):
-    def __init__(self, x, y):
-        self.x = x
-        self.y = y
-
-    def __str__(self):
-        return "x: " + str(self.x) + ", y: " + str(self.y)

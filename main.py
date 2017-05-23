@@ -1,16 +1,20 @@
 from math import sin, cos, radians
 from random import randint
 
+import sys
+from PyQt5.QtCore import QSize
+from PyQt5.QtWidgets import QApplication, QWidget
 from Drone import Position, Drone
+from GUI import GUI
 from move import Move, generate_moves
 
-x = Drone()
-x.pos = Position(0, 0)
-x.apply_moves([Move(90, 10), Move(0, 10), Move(180, 10), Move(270, 10), Move(45, 12)])
 
-print(str(x))
+if __name__ == '__main__':
 
-mov = generate_moves(10, 10)
-x.apply_moves(mov)
+    app = QApplication(sys.argv)
 
-print(str(x))
+    w = GUI()
+
+    w.init_gui()
+
+    sys.exit(app.exec_())
